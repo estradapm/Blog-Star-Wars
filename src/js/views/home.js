@@ -9,7 +9,7 @@ export const Home = () => {
     
     return (
         <div className="text-center mt-5">
-            <div className="card-container" style={{ maxWidth: "80%", margin: "auto" }}>
+            <div className="card-container" style={{maxWidth: "80%", margin: "auto" }}>
                 {store.people?.map(el => (
                     <PeopleCard 
                         key={el.uid} 
