@@ -12,9 +12,9 @@ export const PeopleDetails = () => {
 
     return (
         <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-            <div style={{ marginTop: "-37px", marginLeft: "-20px", marginRight: "-20px" }}>
+            <div style={{ marginTop: "-25px", marginLeft: "-20px", marginRight: "-20px" }}>
                 <h2 style={{ backgroundColor: "yellow", textAlign: "center", marginBottom: "20px", padding: "10px 0" }}>
-                    Learn more...
+                    Learn more: {store.peopleDetails?.properties.name}
                 </h2>
             </div>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "20px" }}>
@@ -27,7 +27,7 @@ export const PeopleDetails = () => {
                         />
                         <figcaption style={{ marginTop: "10px", fontSize: "18px", fontWeight: "bold" }}>
                             {store.peopleDetails?.properties.name}
-                            <p style={{ marginTop: "10px", textAlign: "center", color: "#084298" }}>
+                            <p style={{ marginTop: "10px", textAlign: "center", color: "grey" }}>
                                 <strong>{store.peopleDetails?.description}</strong>
                             </p>
                         </figcaption>
