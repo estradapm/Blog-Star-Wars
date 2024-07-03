@@ -31,7 +31,7 @@ export const Navbar = () => {
                                 store.favorites.map((favorite, index) => (
                                     <li key={index} className="d-flex justify-content-between align-items-center">
                                         <span className="dropdown-item">{favorite}</span>
-                                        <button className="btn btn-outline-danger btn-sm" onClick={() => handleDeleteFavorite(favorite)}>Delete</button>
+                                        <button className="btn btn-outline-danger btn-sm" style={{marginRight: "15px"}}onClick={() => handleDeleteFavorite(favorite)}><i className="fa fa-trash"></i></button>
                                     </li>
                                 ))
                             )}
