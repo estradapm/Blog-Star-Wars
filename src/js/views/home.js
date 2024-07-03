@@ -1,36 +1,57 @@
-import React, { useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useContext, useEffect } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import PeopleCard from "../component/peopleCard";
+import PlanetsCard from "../component/planetsCard";
+import VehiclesCard from "../component/vehiclesCard";
 
 export const Home = () => {
     const { store, actions } = useContext(Context);
-    
-    return (
 
+  
+    return (
         <div className="text-center mt-5">
             <h1 style={{ marginTop: "-37px", backgroundColor: "yellow", textAlign: "center", marginBottom: "20px", padding: "10px 0" }}>
-                    Characters
+                Characters
             </h1>
-            <div className="card-container" style={{maxWidth: "80%", margin: "auto" }}>
+            <div className="card-container" style={{ maxWidth: "80%", margin: "auto" }}>
                 {store.people?.map(el => (
-                    <PeopleCard 
-                        key={el.uid} 
-                        name={el.name} 
-                        uid={el.uid} 
+                    <PeopleCard
+                        key={el.uid}
+                        name={el.name}
+                        uid={el.uid}
+                    />
+                ))}
+            </div>
+
+            <h1 style={{ marginTop: "20px", backgroundColor: "yellow", textAlign: "center", marginBottom: "20px", padding: "10px 0" }}>
+                Planets
+            </h1>
+
+            <div className="card-container" style={{ maxWidth: "80%", margin: "auto" }}>
+                {store.planets?.map(el => (
+                    <PlanetsCard
+                        key={el.uid}
+                        name={el.name}
+                        uid={el.uid}
                     />
                 ))}
             </div>
 
 
             <h1 style={{ marginTop: "20px", backgroundColor: "yellow", textAlign: "center", marginBottom: "20px", padding: "10px 0" }}>
-                    Planets
+                Vehicles
             </h1>
 
-
+            <div className="card-container" style={{ maxWidth: "80%", margin: "auto" }}>
+                {store.vehicles?.map(el => (
+                    <VehiclesCard
+                        key={el.uid}
+                        name={el.name}
+                        uid={el.uid}
+                    />
+                ))}
+            </div>
         </div>
-
-        
     );
 };

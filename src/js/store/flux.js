@@ -1,9 +1,12 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			
+			people: [],
+            planets: [],
+			vehicles: [],
 		},
 		actions: {
+
 			getPeopleDetails: async (uid) => {
 				try {
 					const resp = await fetch ("https://www.swapi.tech/api/people/" + uid);
@@ -24,6 +27,56 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await resp.json();
 					console.log(data)
 					setStore ({people: data.results})
+				} catch (error) {
+					console.log (error)
+				}
+			},
+
+			getPlanetsDetails: async (uid) => {
+				try {
+					const resp = await fetch ("https://www.swapi.tech/api/planets/" + uid);
+					console.log (resp)
+					if (!resp.ok) throw new Error ("Error fetching planetsDetails")
+					const data = await resp.json();
+					console.log(data)
+					setStore ({planetsDetails: data.result})
+				} catch (error) {
+					console.log (error)
+				}
+			},
+			getPlanets: async () => {
+				try {
+					const resp = await fetch ("https://www.swapi.tech/api/planets");
+					console.log (resp)
+					if (!resp.ok) throw new Error ("Error fetching planets")
+					const data = await resp.json();
+					console.log(data)
+					setStore ({planets: data.results})
+				} catch (error) {
+					console.log (error)
+				}
+			},
+
+			getVehiclesDetails: async (uid) => {
+				try {
+					const resp = await fetch ("https://www.swapi.tech/api/vehicles/" + uid);
+					console.log (resp)
+					if (!resp.ok) throw new Error ("Error fetching vehiclesDetails")
+					const data = await resp.json();
+					console.log(data)
+					setStore ({vehiclesDetails: data.result})
+				} catch (error) {
+					console.log (error)
+				}
+			},
+			getVehicles: async () => {
+				try {
+					const resp = await fetch ("https://www.swapi.tech/api/vehicles");
+					console.log (resp)
+					if (!resp.ok) throw new Error ("Error fetching vehicles")
+					const data = await resp.json();
+					console.log(data)
+					setStore ({vehicles: data.results})
 				} catch (error) {
 					console.log (error)
 				}
