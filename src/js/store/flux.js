@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: [],
             planets: [],
 			vehicles: [],
+			favorites: [],
 		},
 		actions: {
 
@@ -81,6 +82,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log (error)
 				}
 			},
+			addFavorite: (item) => {
+                const store = getStore();
+                setStore({ favorites: [...store.favorites, item] });
+            },
+            removeFavorite: (item) => {
+                const store = getStore();
+                setStore({ favorites: store.favorites.filter(fav => fav !== item) });
+            },
 		}
 	};
 };

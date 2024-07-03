@@ -13,6 +13,11 @@ const PlanetsCard = ({ name, uid }) => {
 
     const toggleHeart = () => {
         setIsHeartFilled(!isHeartFilled);
+        if (!isHeartFilled) {
+            actions.addFavorite(name);
+        } else {
+            actions.removeFavorite(name);
+        }
     };
 
     return (
